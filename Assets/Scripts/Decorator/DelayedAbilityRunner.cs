@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityRunner : MonoBehaviour
+public class DelayedAbilityRunner : MonoBehaviour
 {
     [SerializeField] 
-    private IAbility _currentAbility = new RageAbility();
+    private IAbility _currentAbility = new DelayedDecorator(new RageAbility());
 
     public void UseAbility()
     {
