@@ -8,6 +8,6 @@ public class AbilityRunner : MonoBehaviour
 
     public void UseAbility()
     {
-        _currentAbility.Use(GameObject currentGameObject)
+        _currentAbility.Use(gameObject);
     }
 }
