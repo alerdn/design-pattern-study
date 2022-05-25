@@ -14,11 +14,15 @@ public class Level : MonoBehaviour
 
     // Usando observer apenas com C# e não Unity propriamente dita
     public event Action OnLevelUpAction;
+    public event Action OnExperienceChange;
 
     public void GainXp(int amount)
     {
         int level = GetLevel();
         currentXp += amount;
+
+        // Triggar evento quando ganhar XP
+        OnExperienceChange?.Invoke();
 
         if (GetLevel() > level)
         {

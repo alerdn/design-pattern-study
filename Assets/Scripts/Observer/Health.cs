@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float maxLife = 10;
+    public event Action OnLifeUpgrade;
 
     private void OnEnable()
     {
@@ -21,5 +23,6 @@ public class Health : MonoBehaviour
     private void UpgradeLife()
     {
         maxLife *= 1.1f;
+        OnLifeUpgrade?.Invoke();
     }
 }
