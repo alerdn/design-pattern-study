@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class DelayedAbilityRunner : MonoBehaviour
 {
-    [SerializeField] 
-    private IAbility _currentAbility = new DelayedDecorator(new RageAbility());
+    [SerializeField]
+    private IAbility _currentAbility = new SequenceComposite(
+        new IAbility[]{
+            new RageAbility(),
+            new DelayedDecorator(new RageAbility())
+        }
+    );
 
     public void UseAbility()
     {
